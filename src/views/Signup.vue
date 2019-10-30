@@ -7,12 +7,24 @@
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
-          <label>Name:</label>
-          <input type="text" class="form-control" v-model="name" />
+          <label>Full Name:</label>
+          <input type="string" class="form-control" v-model="fullName" />
         </div>
         <div class="form-group">
           <label>Email:</label>
-          <input type="email" class="form-control" v-model="email" />
+          <input type="string" class="form-control" v-model="email" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number:</label>
+          <input type="string" class="form-control" v-model="phoneNumber" />
+        </div>
+        <div class="form-group">
+          <label>Zip Code:</label>
+          <input type="string" class="form-control" v-model="zipCode" />
+        </div>
+        <div class="form-group">
+          <label>Bio:</label>
+          <input type="string" class="form-control" v-model="bio" />
         </div>
         <div class="form-group">
           <label>Password:</label>
@@ -34,8 +46,11 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      name: "",
+      fullName: "",
       email: "",
+      phoneNumber: "",
+      zipCode: "",
+      bio: "",
       password: "",
       passwordConfirmation: "",
       errors: []
@@ -44,8 +59,11 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        name: this.name,
+        full_name: this.fullName,
         email: this.email,
+        phone_number: this.phoneNumber,
+        zip_code: this.zipCode,
+        bio: this.bio,
         password: this.password,
         password_confirmation: this.passwordConfirmation
       };
