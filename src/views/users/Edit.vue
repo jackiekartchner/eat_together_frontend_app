@@ -60,7 +60,7 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        name: this.user.full_name,
+        full_name: this.user.full_name,
         bio: this.user.bio,
         phone_number: this.user.phone_number,
         email: this.user.email,

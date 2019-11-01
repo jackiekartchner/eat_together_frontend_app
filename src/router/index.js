@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import UsersShow from "../views/users/Show.vue";
 import UsersEdit from "../views/users/Edit.vue";
+import BookingsShow from "../views/bookings/Show.vue";
+import BookingsIndex from "../views/bookings/Index.vue";
 import CravingsEdit from "../views/cravings/Edit.vue";
 import CravingsNew from "../views/cravings/New.vue";
 import CravingsIndex from "../views/cravings/Index.vue";
@@ -20,6 +22,8 @@ const routes = [
   },
   { path: "/users/me", name: "users-show", component: UsersShow },
   { path: "/users/:id/edit", name: "users-edit", component: UsersEdit },
+  { path: "/bookings/:id", name: "bookings-show", component: BookingsShow },
+  { path: "/bookings", name: "bookings-index", component: BookingsIndex },
   { path: "/cravings/:id/edit", name: "cravings-edit", component: CravingsEdit },
   { path: "/cravings/new", name: "cravings-new", component: CravingsNew },
   { path: "/cravings", name: "cravings-index", component: CravingsIndex },

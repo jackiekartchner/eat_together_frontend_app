@@ -7,6 +7,8 @@
       |
       <router-link to="/cravings">Cravings</router-link>
       |
+      <router-link to="/bookings">Bookings</router-link>
+      |
       <router-link to="/signup">Signup</router-link>
       |
       <router-link to="/login">Login</router-link>
