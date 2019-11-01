@@ -55,7 +55,7 @@ export default {
       axios
         .post("/api/cravings", params)
         .then(response => {
-          this.$router.push("/students/me");
+          this.$router.push("/cravings");
         })
         .catch(error => {
           this.errors = error.response.data.errors;

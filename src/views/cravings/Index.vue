@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <h1>All Cravings</h1>
+    <router-link v-bind:to="`/cravings/new`">
+      <button class="btn btn-warning">New Craving</button>
+    </router-link>
     <div v-for="craving in cravings">
-      <router-link v-bind:to="`/cravings/new`">
-        <button class="btn btn-warning">New Craving</button>
-      </router-link>
       <h3>Cuisine Type: {{ craving.category }}</h3>
       <p>Price: {{ craving.price }}</p>
       <p>Travel Distance (in miles): {{ craving.radius }}</p>
