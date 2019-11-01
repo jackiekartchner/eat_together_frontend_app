@@ -6,7 +6,9 @@
     <p>Phone Number: {{ user.phone_number }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Zip Code: {{ user.zip_code }}</p>
-    <router-link to="`/users/${user.id}/edit`">Edit Profile</router-link>
+    <router-link v-bind:to="`/users/${user.id}/edit`">
+      <button class="btn btn-warning">Edit Profile</button>
+    </router-link>
   </div>
 </template>
 

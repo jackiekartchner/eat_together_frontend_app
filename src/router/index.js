@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import UsersShow from "../views/users/Show.vue";
+import UsersEdit from "../views/users/Edit.vue";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Signup from "../views/Signup.vue";
@@ -24,6 +25,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   { path: "/users/me", name: "users-show", component: UsersShow },
+  { path: "/users/:id/edit", name: "users-edit", component: UsersEdit },
   { path: "/signup", name: "signup", component: Signup },
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout }
