@@ -19,8 +19,10 @@
       <b>Name of Partner: {{ booking.user2.full_name }}</b>
     </p>
     <p><b>Partner Contact Info:</b></p>
-    <p>Phone Number: {{ booking.user1.phone_number }}</p>
-    <p>Email: {{ booking.user1.email }}</p>
+    <p v-if="currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
+    <p v-if="currentUser()">Email: {{ booking.user1.email }}</p>
+    <p v-if="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
+    <p v-if="!currentUser()">Email: {{ booking.user2.email }}</p>
     <router-link v-bind:to="`/bookings`">
       <button class="btn btn-warning">All Bookings</button>
     </router-link>
