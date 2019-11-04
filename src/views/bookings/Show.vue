@@ -1,8 +1,9 @@
 <template>
   <div class="bookings-show">
     <h2>Booking Details</h2>
-    <p>Appointment: {{ booking.appointment }}</p>
-    <p>Restaurant: {{ booking.restaurant.name }}</p>
+    <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
+    <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
+    <p>Restaurant Name: {{ booking.restaurant.name }}</p>
     <img v-bind:src="booking.restaurant.image_url" alt="" />
     <p><b>Restaurant Info:</b></p>
     <p>Address: {{ booking.restaurant.display_address }}</p>
@@ -27,6 +28,7 @@
 <style></style>
 <script>
 import axios from "axios";
+import moment from "moment";
 export default {
   data: function() {
     return {
@@ -39,6 +41,13 @@ export default {
       console.log(this.booking);
     });
   },
-  methods: {}
+  methods: {
+    relativeDate: function(date) {
+      return moment(date).format("MMMM Do YYYY");
+    },
+    relativeTime: function(time) {
+      return moment(time).format("h:mm a");
+    }
+  }
 };
 </script>
