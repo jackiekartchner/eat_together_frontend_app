@@ -2,19 +2,12 @@
   <div class="container">
     <h1>All Bookings</h1>
     <div v-for="booking in bookings">
+      <h3>Restaurant Name: {{ booking.restaurant.name }}</h3>
+      <img v-bind:src="booking.restaurant.image_url" alt="" />
       <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
       <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
-      <p>Restaurant Name: {{ booking.restaurant.name }}</p>
-      <img v-bind:src="booking.restaurant.image_url" alt="" />
-      <p><b>Restaurant Info:</b></p>
-      <p>Address: {{ booking.restaurant.display_address }}</p>
-      <p>Phone Number: {{ booking.restaurant.display_phone }}</p>
-      Restaurant Yelp Site:
-      <a v-bind:href="booking.restaurant.url">{{ booking.restaurant.name }}</a>
-      <p>Price: {{ booking.restaurant.price }}</p>
-      <p>Category: {{ booking.restaurant.categories }}</p>
       <router-link v-bind:to="`/bookings/${booking.id}`">
-        <button class="btn btn-warning">Booking Details</button>
+        <button class="btn btn-warning">Booking and Restaurant Details</button>
       </router-link>
     </div>
   </div>

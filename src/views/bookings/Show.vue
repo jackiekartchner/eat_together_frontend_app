@@ -12,13 +12,15 @@
     <a v-bind:href="booking.restaurant.url">{{ booking.restaurant.name }}</a>
     <p>Price: {{ booking.restaurant.price }}</p>
     <p>Category: {{ booking.restaurant.categories }}</p>
-    <p>
+    <p v-if="currentUser()">
       <b>Name of Partner: {{ booking.user1.full_name }}</b>
+    </p>
+    <p v-if="!currentUser()">
+      <b>Name of Partner: {{ booking.user2.full_name }}</b>
     </p>
     <p><b>Partner Contact Info:</b></p>
     <p>Phone Number: {{ booking.user1.phone_number }}</p>
     <p>Email: {{ booking.user1.email }}</p>
-    <p>You: {{ booking.user2.full_name }}</p>
     <router-link v-bind:to="`/bookings`">
       <button class="btn btn-warning">All Bookings</button>
     </router-link>
@@ -32,7 +34,8 @@ import moment from "moment";
 export default {
   data: function() {
     return {
-      booking: {}
+      booking: {},
+      user_id: localStorage.getItem("current_user.id")
     };
   },
   created: function() {
@@ -47,6 +50,13 @@ export default {
     },
     relativeTime: function(time) {
       return moment(time).format("h:mm a");
+    },
+    currentUser: function() {
+      if (this.user_id == this.booking.user1_id) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 };
