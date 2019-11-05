@@ -23,6 +23,9 @@
     <p v-if="currentUser()">Email: {{ booking.user1.email }}</p>
     <p v-if="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
     <p v-if="!currentUser()">Email: {{ booking.user2.email }}</p>
+    <div>
+      <button class="btn btn-danger" v-on:click="destroyBooking()">Destroy</button>
+    </div>
     <router-link v-bind:to="`/bookings`">
       <button class="btn btn-warning">All Bookings</button>
     </router-link>
@@ -59,6 +62,12 @@ export default {
       } else {
         return false;
       }
+    },
+    destroyBooking: function() {
+      axios.delete("/api/bookings/" + this.booking.id).then(response => {
+        console.log("Success", response.data);
+        this.$router.push("/bookings");
+      });
     }
   }
 };

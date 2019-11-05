@@ -21,9 +21,10 @@
           <input type="string" class="form-control" v-model="radius" />
         </div>
         <div class="form-group">
-          <label>Availability:</label>
-          <input type="string" class="form-control" v-model="appointment" />
+          <label>Available Date and Time:</label>
+          <input type="datetime-local" class="form-control" v-model="appointment" />
         </div>
+        {{ appointment }}
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
     </div>
