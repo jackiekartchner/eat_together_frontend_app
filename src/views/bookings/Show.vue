@@ -6,6 +6,7 @@
     <p>Restaurant Name: {{ booking.restaurant.name }}</p>
     <img v-bind:src="booking.restaurant.image_url" alt="" />
     <p><b>Restaurant Info:</b></p>
+    <div id="map"></div>
     <p>Address: {{ booking.restaurant.display_address }}</p>
     <p>Phone Number: {{ booking.restaurant.display_phone }}</p>
     Restaurant Yelp Site:
@@ -32,7 +33,21 @@
   </div>
 </template>
 
-<style></style>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  top: 0;
+  bottom: 0;
+  height: 700px;
+  width: 100%;
+}
+.mapboxgl-popup {
+  max-width: 200px;
+}
+</style>
 <script>
 import axios from "axios";
 import moment from "moment";
@@ -46,7 +61,32 @@ export default {
   created: function() {
     axios.get("/api/bookings/" + this.$route.params.id).then(response => {
       this.booking = response.data;
-      console.log(this.booking);
+      this.display_address = response.data.restaurant.display_address;
+      console.log(this.display_address);
+
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiamthcnRjaDIiLCJhIjoiY2sxdXozZ3N2MTcxMTNscDRzY2Z1cTY1eCJ9.W_YhUE5-d-Z5RbJE2Zf3HQ";
+
+      var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+      mapboxClient.geocoding
+        .forwardGeocode({
+          query: this.display_address,
+          autocomplete: false,
+          limit: 1
+        })
+        .send()
+        .then(function(response) {
+          if (response && response.body && response.body.features && response.body.features.length) {
+            var feature = response.body.features[0];
+            var map = new mapboxgl.Map({
+              container: "map",
+              style: "mapbox://styles/mapbox/streets-v11",
+              center: feature.center,
+              zoom: 15
+            });
+            new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+          }
+        });
     });
   },
   methods: {

@@ -24,7 +24,6 @@
           <label>Available Date and Time:</label>
           <input type="datetime-local" class="form-control" v-model="appointment" />
         </div>
-        {{ appointment }}
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
     </div>
