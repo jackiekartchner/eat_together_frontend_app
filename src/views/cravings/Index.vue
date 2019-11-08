@@ -7,7 +7,6 @@
     <div v-for="craving in cravings">
       <h3>Cuisine Type: {{ craving.category }}</h3>
       <p>Price: {{ craving.price }}</p>
-      <p>Travel Distance: {{ craving.radius }} miles</p>
       <p>Available Date: {{ relativeDate(craving.appointment) }}</p>
       <p>Available Time: {{ relativeTime(craving.appointment) }}</p>
       <p>Last Updated {{ updatedDate(craving.updated_at) }}</p>

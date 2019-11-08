@@ -17,10 +17,6 @@
           <input type="text" class="form-control" v-model="price" />
         </div>
         <div class="form-group">
-          <label>Travel Distance (in miles):</label>
-          <input type="string" class="form-control" v-model="radius" />
-        </div>
-        <div class="form-group">
           <label>Available Date and Time:</label>
           <input type="datetime-local" class="form-control" v-model="appointment" />
         </div>
@@ -38,7 +34,6 @@ export default {
     return {
       category: "",
       price: "",
-      radius: "",
       appointment: "",
       errors: []
     };
@@ -49,7 +44,6 @@ export default {
       var params = {
         category: this.category,
         price: this.price,
-        radius: this.radius,
         appointment: this.appointment
       };
       axios

@@ -6,6 +6,7 @@
       <img v-bind:src="booking.restaurant.image_url" alt="" />
       <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
       <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
+      <p>Last Updated {{ updatedDate(booking.updated_at) }}</p>
       <router-link v-bind:to="`/bookings/${booking.id}`">
         <button class="btn btn-warning">Booking and Restaurant Details</button>
       </router-link>
@@ -25,7 +26,7 @@ export default {
   created: function() {
     axios.get("/api/bookings").then(response => {
       this.bookings = response.data;
-      console.log(this.bookings);
+      console.log(response.data);
     });
   },
   methods: {
@@ -34,6 +35,9 @@ export default {
     },
     relativeTime: function(time) {
       return moment(time).format("h:mm a");
+    },
+    updatedDate: function(date) {
+      return moment(date).fromNow();
     }
   }
 };

@@ -17,10 +17,6 @@
           <input type="text" class="form-control" v-model="craving.price" />
         </div>
         <div class="form-group">
-          <label>Travel Distance (in miles):</label>
-          <input type="string" class="form-control" v-model="craving.radius" />
-        </div>
-        <div class="form-group">
           <label>Availability:</label>
           <input type="string" class="form-control" v-model="craving.appointment" />
         </div>
@@ -58,7 +54,6 @@ export default {
       var params = {
         category: this.craving.category,
         price: this.craving.price,
-        radius: this.craving.radius,
         appointment: this.craving.appointment
       };
       axios
