@@ -10,9 +10,9 @@
       <p>Available Date: {{ relativeDate(craving.appointment) }}</p>
       <p>Available Time: {{ relativeTime(craving.appointment) }}</p>
       <p>Last Updated {{ updatedDate(craving.updated_at) }}</p>
-      <router-link v-bind:to="`/cravings/${craving.id}/edit`">
-        <button class="btn btn-warning">Edit Craving</button>
-      </router-link>
+      <div>
+        <button class="btn btn-danger" v-on:click="destroyCraving()">Destroy</button>
+      </div>
     </div>
   </div>
 </template>
@@ -29,7 +29,9 @@ export default {
   created: function() {
     axios.get("/api/cravings").then(response => {
       this.cravings = response.data;
+      console.log(this.cravings);
     });
+    console.log(moment("2019-11-12T13:00:00.000Z").format());
   },
   methods: {
     relativeDate: function(date) {
@@ -40,6 +42,12 @@ export default {
     },
     updatedDate: function(date) {
       return moment(date).fromNow();
+    },
+    destroyCraving: function() {
+      axios.delete("/api/cravings/" + this.cravings.id).then(response => {
+        console.log("Success", response.data);
+        this.$router.push("/cravings");
+      });
     }
   }
 };

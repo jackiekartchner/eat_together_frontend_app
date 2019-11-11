@@ -3,7 +3,7 @@
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <h1>
-          <New>Edit Craving</New>
+          Edit Craving
         </h1>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -12,9 +12,60 @@
           <label>Cuisine Type:</label>
           <input type="string" class="form-control" v-model="craving.category" />
         </div>
+        <!--      <div class="form-group">
+          <label>Cuisine Type:</label>
+          <select>
+            <option value="American" class="form-control" v-model="craving.category">American</option>
+            <option value="British" class="form-control" v-model="craving.category">British</option>
+            <option value="Cajun" class="form-control" v-model="craving.category">Cajun</option>
+            <option value="Caribbean" class="form-control" v-model="craving.category">Caribbean</option>
+            <option value="Chinese" class="form-control" v-model="craving.category">Chinese</option>
+            <option value="French" class="form-control" v-model="craving.category">French</option>
+            <option value="German" class="form-control" v-model="craving.category">German</option>
+            <option value="Greek" class="form-control" v-model="craving.category">Greek</option>
+            <option value="Indian" class="form-control" v-model="craving.category">Indian</option>
+            <option value="Italian" class="form-control" v-model="craving.category">Italian</option>
+            <option value="Japanese" class="form-control" v-model="craving.category">Japanese</option>
+            <option value="Korean" class="form-control" v-model="craving.category">Korean</option>
+            <option value="Mediterranean" class="form-control" v-model="craving.category">Mediterranean</option>
+            <option value="Mexican" class="form-control" v-model="craving.category">Mexican</option>
+            <option value="American" class="form-control" v-model="craving.category">American</option>
+            <option value="Soul Food" class="form-control" v-model="craving.category">Soul Food</option>
+            <option value="Spanish" class="form-control" v-model="craving.category">Spanish</option>
+            <option value="Thai" class="form-control" v-model="craving.category">Thai</option>
+            <option value="Turkish" class="form-control" v-model="craving.category">Turkish</option>
+            <option value="Vietnamese" class="form-control" v-model="craving.category">Vietnamese</option>
+            <option value="Other" class="form-control" v-model="craving.category">Other</option>
+          </select>
+        </div> -->
         <div class="form-group">
           <label>Price:</label>
-          <input type="text" class="form-control" v-model="craving.price" />
+          <input type="radio" class="form-control" value="$" v-model="craving.price" />
+          <label>
+            <b>$</b>
+            (under $10)
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="radio" class="form-control" value="$$" v-model="craving.price" />
+          <label>
+            <b>$$</b>
+            ($11-$30)
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="radio" class="form-control" value="$$$" v-model="craving.price" />
+          <label>
+            <b>$$$</b>
+            ($31-$60)
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="radio" class="form-control" value="$$$$" v-model="craving.price" />
+          <label>
+            <b>$$$$</b>
+            ($61+)
+          </label>
         </div>
         <div class="form-group">
           <label>Availability:</label>
@@ -22,9 +73,6 @@
         </div>
         <input type="submit" class="btn btn-primary" value="Edit" />
       </form>
-    </div>
-    <div>
-      <button class="btn btn-danger" v-on:click="destroyCraving()">Destroy</button>
     </div>
   </div>
 </template>

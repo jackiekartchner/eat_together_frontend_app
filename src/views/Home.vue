@@ -10,7 +10,7 @@
 export default {
   data: function() {
     return {
-      message: "Eat Together App landing page! Will make it nicer onec I do more styling to it."
+      message: "Eat Together App landing page!"
     };
   },
   created: function() {},
