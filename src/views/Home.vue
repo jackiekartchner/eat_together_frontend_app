@@ -57,13 +57,14 @@
     </header>
     <!--Header End-->
     <h1>{{ message }}</h1>
+    </br>
     <!-- Footer
         ================================================= -->
     <footer id="footer">
       <div class="container">
         <div class="row">
           <div class="footer-wrapper">
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-2 col-sm-2">
               <a href=""><img src="" alt="" class="footer-logo" /></a>
               <ul class="list-inline social-icons">
                 <li>
@@ -83,52 +84,53 @@
                 </li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2">
-              <h6>For individuals</h6>
+            <div class="col-md-3 col-sm-3">
+              <h6>For Foodies</h6>
               <ul class="footer-links">
-                <li><a href="">Signup</a></li>
-                <li><a href="">login</a></li>
-                <li><a href="">Explore</a></li>
-                <li><a href="">Finder app</a></li>
-                <li><a href="">Features</a></li>
-                <li><a href="">Language settings</a></li>
-              </ul>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <h6>For businesses</h6>
-              <ul class="footer-links">
-                <li><a href="">Business signup</a></li>
-                <li><a href="">Business login</a></li>
-                <li><a href="">Benefits</a></li>
-                <li><a href="">Resources</a></li>
-                <li><a href="">Advertise</a></li>
-                <li><a href="">Setup</a></li>
-              </ul>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <h6>About</h6>
-              <ul class="footer-links">
-                <li><a href="">About us</a></li>
-                <li><a href="">Contact us</a></li>
-                <li><a href="">Privacy Policy</a></li>
-                <li><a href="">Terms</a></li>
-                <li><a href="">Help</a></li>
+                <li>
+                  <a href="https://bucketlistjourney.net/things-every-foodie-must-do-in-their-lifetime/">
+                    Foodie Bucket List
+                  </a>
+                </li>
+                <li>
+                  <a href="https://travel.usnews.com/rankings/best-foodie-destinations-in-the-usa/">
+                    Best Foodie Cities in the U.S.
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.rd.com/culture/best-foodie-cities-in-the-world/">
+                    Best Foodie Cities in the World
+                  </a>
+                </li>
+                <li><a href="http://www.foodtimeline.org/">Food Timeline</a></li>
               </ul>
             </div>
             <div class="col-md-3 col-sm-3">
+              <h6>Best Food Blogs to Follow</h6>
+              <ul class="footer-links">
+                <li><a href="https://www.fiction-food.com/">Fiction-Food Cafe</a></li>
+                <li><a href="https://pinchofyum.com/">Pinch of Yum</a></li>
+                <li>
+                  <a href="https://chocolatecoveredkatie.com/">Chocolate Covered Katie</a>
+                </li>
+                <li><a href="https://howtofeedaloon.com/">How to feed a loon</a></li>
+                <li><a href="https://www.thefoodieaffair.com/">The Foodie Affair</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
               <h6>Contact Us</h6>
               <ul class="contact">
                 <li>
                   <i class="icon ion-ios-telephone-outline"></i>
-                  +1 (234) 222 0754
+                  +1 (800) 111 0000
                 </li>
                 <li>
                   <i class="icon ion-ios-email-outline"></i>
-                  info@thunder-team.com
+                  info@eat_together.com
                 </li>
                 <li>
                   <i class="icon ion-ios-location-outline"></i>
-                  228 Park Ave S NY, USA
+                  228 Eat Ave Seattle, WA USA
                 </li>
               </ul>
             </div>
