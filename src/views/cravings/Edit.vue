@@ -114,13 +114,13 @@ export default {
           this.errors = error.response.data.errors;
           console.log(error.response.data.errors);
         });
-    },
-    destroyCraving: function() {
-      axios.delete("/api/cravings/" + this.craving.id).then(response => {
-        console.log("Success", response.data);
-        this.$router.push("/cravings");
-      });
     }
+    // destroyCraving: function() {
+    //   axios.delete("/api/cravings/" + this.craving.id).then(response => {
+    //     console.log("Success", response.data);
+    //     this.$router.push("/cravings");
+    //   });
+    // }
   }
 };
 </script>
