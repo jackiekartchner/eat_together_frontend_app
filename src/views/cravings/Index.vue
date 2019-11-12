@@ -68,12 +68,12 @@
       <p>Last Updated {{ updatedDate(craving.updated_at) }}</p>
 
       <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
         Delete Craving
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal fade" id="deleteModal" role="dialog">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -81,10 +81,10 @@
               <h4 class="modal-title">Delete Craving</h4>
             </div>
             <div class="modal-body">
-              <p>Are you sure you want to delete this craving?</p>
+              <p>Are you sure you want to delete this Craving?</p>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-danger" v-on:click="destroyCraving(craving)">Yes</button>
+              <button class="btn btn-danger" v-on:click="destroyCraving(craving)">Delete Craving</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -123,6 +123,7 @@ export default {
     destroyCraving: function(craving) {
       axios.delete("/api/cravings/" + craving.id).then(response => {
         console.log("Success", response.data);
+        $("#deleteModal").modal("hide");
         this.$router.push("/");
       });
     }

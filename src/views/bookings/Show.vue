@@ -81,8 +81,28 @@
     <p v-else="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
     <p v-if="!currentUser()">Email: {{ booking.user1.email }}</p>
     <p v-else="!currentUser()">Email: {{ booking.user2.email }}</p>
-    <div>
-      <button class="btn btn-danger" v-on:click="destroyBooking()">Destroy</button>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+      Delete Booking
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete Booking</h4>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete this Booking?</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger" v-on:click="destroyBooking()">Delete Booking</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
     </div>
     <router-link v-bind:to="`/bookings`">
       <button class="btn btn-warning">All Bookings</button>
@@ -239,6 +259,7 @@ export default {
     destroyBooking: function() {
       axios.delete("/api/bookings/" + this.booking.id).then(response => {
         console.log("Success", response.data);
+        $("#deleteModal").modal("hide");
         this.$router.push("/bookings");
       });
     }
