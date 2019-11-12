@@ -66,8 +66,29 @@
       <p>Available Date: {{ relativeDate(craving.appointment) }}</p>
       <p>Available Time: {{ relativeTime(craving.appointment) }}</p>
       <p>Last Updated {{ updatedDate(craving.updated_at) }}</p>
-      <div>
-        <button class="btn btn-danger" v-on:click="destroyCraving()">Destroy</button>
+
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+        Delete Craving
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Delete Craving</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this craving?</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-danger" v-on:click="destroyCraving(craving)">Yes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -99,10 +120,10 @@ export default {
     updatedDate: function(date) {
       return moment(date).fromNow();
     },
-    destroyCraving: function() {
-      axios.delete("/api/cravings/" + this.cravings.id).then(response => {
+    destroyCraving: function(craving) {
+      axios.delete("/api/cravings/" + craving.id).then(response => {
         console.log("Success", response.data);
-        this.$router.push("/cravings");
+        this.$router.push("/");
       });
     }
   }
