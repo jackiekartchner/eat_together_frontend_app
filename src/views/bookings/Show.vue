@@ -4,7 +4,7 @@
           ================================================= -->
     <div class="col-md-3 static">
       <div class="profile-card">
-        <img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
+        <img src="/images/eric.png" alt="user" class="profile-photo" />
         <h5><a href="/users/me" class="text-white">Sarah Cruiz</a></h5>
       </div>
       <!--profile card ends-->
@@ -54,21 +54,46 @@
                     <div class="friend-card">
                       <img v-bind:src="booking.restaurant.image_url"  alt="profile-cover" class="img-responsive cover" />
                       <div class="card-info">
-                        <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
+                        
                         <div class="friend-info">
                           <h3>
-                            <a href="timeline.html" class="profile-link">Restaurant Name: {{ booking.restaurant.name }}</a>
+                            <a class="">Restaurant Name: {{ booking.restaurant.name }}</a>
                           </h3>
-                         <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
-                         <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
-                  
-                        </div>
+                         <p><b>Reservation Date:</b> {{ relativeDate(booking.appointment) }}</p>
+                         <p><b>Reservation Time:</b> {{ relativeTime(booking.appointment) }}</p>
+                         <h3>
+                           <a class="">Restaurant Info:</a>
+                         </h3>
+                        <p><b>ddress:</b>A {{ booking.restaurant.display_address }}</p>
+                            <p><b>Phone Number:</b> {{ booking.restaurant.display_phone }}</p>
+                            <p><b>Price:</b> {{ booking.restaurant.price }}</p>
+                            <p><b>Category:</b> {{ booking.restaurant.categories }}</p>
                         <div class="google-maps">
                           <div style="width: 640px; height: 480px" id="map"></div>
                         </div>
-                        <h3>
-                          <a href="timeline.html" class="profile-link">Restaurant Info:</a>
-                        </h3>
+                        <p class="pull-left text-green">
+                          Can zoom in and out of the map. The bottom right icon with the diamond allows you to see satellite imagery along with current traffic conditions.
+                        </p>
+                        </div>
+                        </br>
+
+                       <h2 v-if="!currentUser()" class="text-red">
+                         <b>Name of Partner: {{ booking.user1.full_name }}</b>
+                       </h2>
+                       <h2 v-else="!currentUser()" class="text-red">
+                         <b>Name of Partner: {{ booking.user2.full_name }}</b>
+                       </h2>
+                     </br>
+                     </br>
+                       <img src="/images/jackie.png" alt="user" class="profile-photo-lg" />
+                       <h4>
+                         <a class="">Partner Contact Info:</a>
+                       </h4>
+                       <p v-if="!currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
+                       <p v-else="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
+                       <p v-if="!currentUser()">Email: {{ booking.user1.email }}</p>
+                       <p v-else="!currentUser()">Email: {{ booking.user2.email }}</p> 
+                       </br>
                      <!-- Trigger the modal with a button -->
                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
                        Delete Booking

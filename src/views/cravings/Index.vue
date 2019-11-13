@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="profile-info">
-              <img src="images/eric_image.png" alt="" class="img-responsive profile-photo" />
+              <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
               <h3>{{ user.full_name }}</h3>
               <p class="text-muted">{{ user.bio }}</p>
             </div>
@@ -29,7 +29,7 @@
       <!--Timeline Menu for Small Screens-->
       <div class="navbar-mobile hidden-lg hidden-md">
         <div class="profile-info">
-          <img src="/images/eric_image" alt="" class="img-responsive profile-photo" />
+          <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
           <h4>{{ user.full_name }}</h4>
           <p class="text-muted">{{ user.bio }}</p>
         </div>
@@ -57,7 +57,6 @@
                     <div class="friend-card">
                       <img v-bind:src="craving.category_image" alt="profile-cover" class="img-responsive cover" />
                       <div class="card-info">
-                        <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
                         <div class="friend-info">
                           <a href="/bookings" class="pull-right text-green">
                             Click here to see if a booking was created.

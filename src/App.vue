@@ -5,7 +5,7 @@
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button
+            <!-- <button
               type="button"
               class="navbar-toggle collapsed"
               data-toggle="collapse"
@@ -16,7 +16,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>
+            </button> -->
             <a class="navbar-brand" href="/"><img src="" alt="logo" /></a>
           </div>
 
@@ -43,12 +43,12 @@
             <ul class="nav navbar-nav navbar-right main-menu">
               <li class="dropdown"><router-link to="/">Home</router-link></li>
             </ul>
-            <form class="navbar-form navbar-right hidden-sm">
+           <!--  <form class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
                 <i class="icon ion-android-search"></i>
                 <input type="text" class="form-control" placeholder="Search friends, photos, videos" />
               </div>
-            </form>
+            </form> -->
           </div>
 
           <!-- /.navbar-collapse -->
