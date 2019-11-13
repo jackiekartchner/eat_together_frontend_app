@@ -5,6 +5,22 @@
         <h1>
           <New>Edit Profile</New>
         </h1>
+        <div class="hello">
+          <picture-input
+            ref="pictureInput"
+            width="600"
+            height="600"
+            margin="16"
+            accept="image/jpeg,image/png"
+            size="10"
+            button-class="btn"
+            :custom-strings="{
+              upload: '<h1>Bummer!</h1>',
+              drag: 'Click and slsect a Profile Picture here'
+            }"
+            @change="onChange"
+          ></picture-input>
+        </div>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
@@ -28,31 +44,31 @@
           <label>Zip Code:</label>
           <input type="string" class="form-control" v-model="user.zip_code" />
         </div>
-        <input type="submit" class="btn btn-primary" value="Edit" />
-      </form>
-    </div>
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
-      Delete User
-    </button>
+        <input type="submit" class="btn btn-primary" value="Save Edits" />
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+          Delete User
+        </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Delete User</h4>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to delete this User?</p>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-danger" v-on:click="destroyUser()">Delete User</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete User</h4>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure you want to delete this User?</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-danger" v-on:click="destroyUser()">Delete User</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
     <!--Header End-->
     <h1>{{ message }}</h1>
@@ -63,13 +79,18 @@
 
 <script>
 import axios from "axios";
+import PictureInput from "vue-picture-input";
 
 export default {
+  name: "app",
   data: function() {
     return {
       user: {},
       errors: []
     };
+  },
+  components: {
+    PictureInput
   },
 
   created: function() {
@@ -103,8 +124,17 @@ export default {
       axios.delete("/api/users/" + this.user.id).then(response => {
         console.log("Success", response.data);
         $("#deleteModal").modal("hide");
-        this.$router.push("/users/me");
+        this.$router.push("/logout");
       });
+    },
+    onChange(image) {
+      console.log("New picture selected!");
+      if (image) {
+        console.log("Picture loaded.");
+        this.image = image;
+      } else {
+        console.log("FileReader API not supported");
+      }
     }
   }
 };
