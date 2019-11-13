@@ -1,14 +1,121 @@
 <template>
   <div class="bookings-show">
-    <h2>Booking Details</h2>
-    <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
-    <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
-    <p>Restaurant Name: {{ booking.restaurant.name }}</p>
-    <img v-bind:src="booking.restaurant.image_url" alt="" />
-    <p><b>Restaurant Info:</b></p>
-    <div style="width: 640px; height: 480px" id="map"></div>
+    <!-- Newsfeed Common Side Bar Left
+          ================================================= -->
+    <div class="col-md-3 static">
+      <div class="profile-card">
+        <img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
+        <h5><a href="/users/me" class="text-white">Sarah Cruiz</a></h5>
+      </div>
+      <!--profile card ends-->
+      <ul class="nav-news-feed">
+        <li>
+          <i class="icon ion-ios-paper"></i>
+          <div><a href="newsfeed.html">My Newsfeed</a></div>
+        </li>
+        <li>
+          <i class="icon ion-ios-people"></i>
+          <div><a href="newsfeed-people-nearby.html">People Nearby</a></div>
+        </li>
+        <li>
+          <i class="icon ion-ios-people-outline"></i>
+          <div><a href="newsfeed-friends.html">Friends</a></div>
+        </li>
+        <li>
+          <i class="icon ion-chatboxes"></i>
+          <div><a href="newsfeed-messages.html">Messages</a></div>
+        </li>
+        <li>
+          <i class="icon ion-images"></i>
+          <div><a href="newsfeed-images.html">Images</a></div>
+        </li>
+        <li>
+          <i class="icon ion-ios-videocam"></i>
+          <div><a href="newsfeed-videos.html">Videos</a></div>
+        </li>
+      </ul>
+      <!--news-feed links ends-->
+      <!--chat block ends-->
+    </div>
+
+      <!-- Timeline
+      ================================================= -->
+      <div class="timeline">
+        <div id="page-contents">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-7">
+              <!-- Friend List
+              ================================================= -->
+              <div class="friend-list">
+                <h2>Booking Details</h2>
+                <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                    <div class="friend-card">
+                      <img v-bind:src="booking.restaurant.image_url"  alt="profile-cover" class="img-responsive cover" />
+                      <div class="card-info">
+                        <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
+                        <div class="friend-info">
+                          <h3>
+                            <a href="timeline.html" class="profile-link">Restaurant Name: {{ booking.restaurant.name }}</a>
+                          </h3>
+                         <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
+                         <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
+                  
+                        </div>
+                        <div class="google-maps">
+                          <div style="width: 640px; height: 480px" id="map"></div>
+                        </div>
+                        <h3>
+                          <a href="timeline.html" class="profile-link">Restaurant Info:</a>
+                        </h3>
+                     <!-- Trigger the modal with a button -->
+                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                       Delete Booking
+                     </button>
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="deleteModal" role="dialog">
+                       <div class="modal-dialog modal-lg">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h4 class="modal-title">Delete Booking</h4>
+                           </div>
+                           <div class="modal-body">
+                             <p>Are you sure you want to delete this Booking?</p>
+                           </div>
+                           <div class="modal-footer">
+                             <button class="btn btn-danger" v-on:click="destroyBooking()">Delete Booking</button>
+                             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <router-link v-bind:to="`/bookings`">
+                       <button class="btn btn-warning">All Bookings</button>
+                     </router-link>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
+    <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p> -->
+    <!-- <p>Restaurant Name: {{ booking.restaurant.name }}</p>
+    <img v-bind:src="booking.restaurant.image_url" alt="" /> -->
+ <!--    <p><b>Restaurant Info:</b></p>
+    <div style="width: 640px; height: 480px" id="map"></div> -->
     <!-- <div id="map"></div> -->
-    <p>Address: {{ booking.restaurant.display_address }}</p>
+  <!--   <p>Address: {{ booking.restaurant.display_address }}</p>
     <p>Phone Number: {{ booking.restaurant.display_phone }}</p>
     Yelp Review:
     <a v-bind:href="booking.restaurant.url">{{ booking.restaurant.name }}</a>
@@ -24,14 +131,14 @@
     <p v-if="!currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
     <p v-else="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
     <p v-if="!currentUser()">Email: {{ booking.user1.email }}</p>
-    <p v-else="!currentUser()">Email: {{ booking.user2.email }}</p>
+    <p v-else="!currentUser()">Email: {{ booking.user2.email }}</p> -->
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+   <!--  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
       Delete Booking
-    </button>
+    </button> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="deleteModal" role="dialog">
+   <!--  <div class="modal fade" id="deleteModal" role="dialog">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -50,7 +157,7 @@
     </div>
     <router-link v-bind:to="`/bookings`">
       <button class="btn btn-warning">All Bookings</button>
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 
@@ -76,7 +183,9 @@ export default {
   data: function() {
     return {
       booking: {},
-      user_id: localStorage.getItem("current_user.id")
+      user_id: localStorage.getItem("current_user.id"),
+      user: {},
+      userID: ""
     };
   },
   created: function() {
@@ -206,6 +315,9 @@ export default {
         $("#deleteModal").modal("hide");
         this.$router.push("/bookings");
       });
+    },
+    getUserInfo: function() {
+      this.userId = localStorage.getItem("user_id", response.data.user_id);
     }
   }
 };
