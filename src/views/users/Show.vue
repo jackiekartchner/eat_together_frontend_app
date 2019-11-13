@@ -1,76 +1,84 @@
 <template>
   <div class="users-show">
-  </br>
-    <!-- Newsfeed Common Side Bar Left
-          ================================================= -->
-    <div class="col-md-3 static">
-      <div class="profile-card">
-        <img src="/images/eric.png" alt="user" class="profile-photo" />
-        <h5><a href="/users/me" class="text-white">{{ user.full_name }}</a></h5>
-      </div>
-      <!--profile card ends-->
-      <ul class="nav-news-feed">
-        <li>
-          <i class="icon ion-ios-paper"></i>
-          <div><a href="newsfeed.html">My Newsfeed</a></div>
-        </li>
-        <li>
-          <i class="icon ion-ios-people"></i>
-          <div><a href="newsfeed-people-nearby.html">People Nearby</a></div>
-        </li>
-        <li>
-          <i class="icon ion-ios-people-outline"></i>
-          <div><a href="newsfeed-friends.html">Friends</a></div>
-        </li>
-        <li>
-          <i class="icon ion-chatboxes"></i>
-          <div><a href="newsfeed-messages.html">Messages</a></div>
-        </li>
-        <li>
-          <i class="icon ion-images"></i>
-          <div><a href="newsfeed-images.html">Images</a></div>
-        </li>
-        <li>
-          <i class="icon ion-ios-videocam"></i>
-          <div><a href="newsfeed-videos.html">Videos</a></div>
-        </li>
-      </ul>
-      <!--news-feed links ends-->
-      <!--chat block ends-->
-    </div>
-    <!-- Friend List
-    ================================================= -->
-    <div class="friend-list">
-      <div class="row">
-        <div class="col-md-4 col-sm-4">
-          <div class="friend-card">
-            <img src="/images/eric.png" alt="profile-cover" class="img-responsive cover" />
-              <div class="friend-info">
-                <h2>Name: {{ user.full_name }}</h2>
-                <h5>Bio: {{ user.bio }}</h5>
-                <p>Phone Number: {{ user.phone_number }}</p>
-                <p>Email: {{ user.email }}</p>
-                <p>Zip Code: {{ user.zip_code }}</p>
-                <router-link v-bind:to="`/users/${user.id}/edit`">
-                  <button class="btn btn-warning">Edit Profile</button>
-                </router-link>
+      <div class="container">
+        <h1>Profile Page</h1>
+        <div class="timeline">
+          <div class="timeline-cover">
+            <!--Timeline Menu for Large Screens-->
+            <div class="timeline-nav-bar hidden-sm hidden-xs">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="profile-info">
+                    <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
+                    <h3></h3>
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <ul class="list-inline profile-menu">
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href="" class="active"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--Timeline Menu for Large Screens End-->
+
+            <!--Timeline Menu for Small Screens-->
+            <div class="navbar-mobile hidden-lg hidden-md">
+              <div class="profile-info">
+                <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
+                <h4></h4>
+                <p class="text-muted"></p>
+              </div>
+              <div class="mobile-menu">
+                <ul class="list-inline">
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href="" class="active"></a></li>
+                </ul>
+              </div>
+            </div>
+            <!--Timeline Menu for Small Screens End-->
+          </div>
+
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="reg-form-container">
+                
+                <!--Registration Form Contents-->
+                <div class="tab-content">
+                  <div class="tab-pane active" id="register">
+                    <h3>{{ user.full_name }}</h3>
+                    <p class="text-muted">{{ user.bio }}</p>
+                    
+                    <!--Register Form-->
+                    <form name="registration_form" id='registration_form' class="form-inline">
+                      <p>Phone Number: {{ user.phone_number }}</p>
+                      <p>Email: {{ user.email }}</p>
+                      <p>Zip Code: {{ user.zip_code }}</p>
+                        <router-link v-bind:to="`/users/${user.id}/edit`">
+                          <button class="btn btn-warning">Edit Profile</button>
+                        </router-link>
+                      </form>
+                    </br>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-          </div>
-        </div>
       </div>
     </div>
+  </div>
+</div>
 
-  <!--   <h3>Name: {{ user.full_name }}</h3>
-    <p>Bio: {{ user.bio }}</p>
-    <p>Phone Number: {{ user.phone_number }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Zip Code: {{ user.zip_code }}</p>
-    <router-link v-bind:to="`/users/${user.id}/edit`">
-      <button class="btn btn-warning">Edit Profile</button>
-    </router-link> -->
+
+ 
 
 </template>
 

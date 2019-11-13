@@ -1,6 +1,7 @@
 <template>
   <div class="bookings-index">
     <div class="container">
+      <h1>Your Bookings Library</h1>
       <div class="timeline">
         <div class="timeline-cover">
           <!--Timeline Menu for Large Screens-->
@@ -8,7 +9,7 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
-                  <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+                  <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
                   <h3>{{ user.full_name }}</h3>
                   <p class="text-muted">{{ user.bio }}</p>
                 </div>
@@ -28,7 +29,7 @@
           <!--Timeline Menu for Small Screens-->
           <div class="navbar-mobile hidden-lg hidden-md">
             <div class="profile-info">
-              <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+              <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
               <h4>{{ user.full_name }}</h4>
               <p class="text-muted">{{ user.bio }}</p>
             </div>

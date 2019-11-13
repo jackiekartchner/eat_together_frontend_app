@@ -5,15 +5,15 @@
         <div class="row">
           <div class="col-sm-offset-3 col-sm-6">
             <div class="intro-texts text-center">
-              <h1 class="text-white">Make Cool Friends !!!</h1>
+              <h1 class="text-white">Meet foodies like you!!!</h1>
               <p>
-                Friend Finder is a social network template that can be used to connect people. The template offers
-                Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more.
+                Eat Together app will find the perfect eating companion based on location, schedule, and preferences
+                entered by the user so that they don’t have to eat alone.
                 <br />
                 <br />
-                Why are you waiting for? Buy it now.
+                What are you waiting for? Sign up now!
               </p>
-              <button class="btn btn-primary">Learn More</button>
+              <router-link class="btn btn-primary" to="/signup">Signup</router-link>
             </div>
           </div>
         </div>

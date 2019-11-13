@@ -8,15 +8,15 @@
         <div class="hello">
           <picture-input
             ref="pictureInput"
-            width="600"
-            height="600"
+            width="400"
+            height="400"
             margin="16"
             accept="image/jpeg,image/png"
             size="10"
             button-class="btn"
             :custom-strings="{
               upload: '<h1>Bummer!</h1>',
-              drag: 'Click and slsect a Profile Picture here'
+              drag: 'Click and select a Profile Picture here'
             }"
             @change="onChange"
           ></picture-input>
@@ -44,11 +44,12 @@
           <label>Zip Code:</label>
           <input type="string" class="form-control" v-model="user.zip_code" />
         </div>
-        <input type="submit" class="btn btn-primary" value="Save Edits" />
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
-          Delete User
-        </button>
+        <div>
+          <input type="submit" class="btn btn-primary" value="Save Edits" />
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+            Delete User
+          </button>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="deleteModal" role="dialog">

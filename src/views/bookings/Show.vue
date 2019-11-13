@@ -1,43 +1,49 @@
 <template>
   <div class="bookings-show">
-    </br>
-    <!-- Newsfeed Common Side Bar Left
-          ================================================= -->
-    <div class="col-md-3 static">
-      <div class="profile-card">
-        <img src="/images/eric.png" alt="user" class="profile-photo" />
-        <h5><a href="/users/me" class="text-white">Sarah Cruiz</a></h5>
-      </div>
-      <!--profile card ends-->
-      <ul class="nav-news-feed">
-        <li>
-          <i class="icon ion-ios-paper"></i>
-          <div><a href="newsfeed.html">My Newsfeed</a></div>
-        </li>
-        <li>
-          <i class="icon ion-ios-people"></i>
-          <div><a href="newsfeed-people-nearby.html">People Nearby</a></div>
-        </li>
-        <li>
-          <i class="icon ion-ios-people-outline"></i>
-          <div><a href="newsfeed-friends.html">Friends</a></div>
-        </li>
-        <li>
-          <i class="icon ion-chatboxes"></i>
-          <div><a href="newsfeed-messages.html">Messages</a></div>
-        </li>
-        <li>
-          <i class="icon ion-images"></i>
-          <div><a href="newsfeed-images.html">Images</a></div>
-        </li>
-        <li>
-          <i class="icon ion-ios-videocam"></i>
-          <div><a href="newsfeed-videos.html">Videos</a></div>
-        </li>
-      </ul>
-      <!--news-feed links ends-->
-      <!--chat block ends-->
-    </div>
+          <div class="container">
+        <h1>Booking Details</h1>
+        <div class="timeline">
+          <div class="timeline-cover">
+            <!--Timeline Menu for Large Screens-->
+            <div class="timeline-nav-bar hidden-sm hidden-xs">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="profile-info">
+                    <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
+                    <h3></h3>
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <ul class="list-inline profile-menu">
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href="" class="active"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--Timeline Menu for Large Screens End-->
+
+            <!--Timeline Menu for Small Screens-->
+            <div class="navbar-mobile hidden-lg hidden-md">
+              <div class="profile-info">
+                <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
+                <h4></h4>
+                <p class="text-muted"></p>
+              </div>
+              <div class="mobile-menu">
+                <ul class="list-inline">
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href="" class="active"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <!-- Timeline
       ================================================= -->
@@ -49,7 +55,6 @@
               <!-- Friend List
               ================================================= -->
               <div class="friend-list">
-                <h2>Booking Details</h2>
                 <div class="row">
                   <div class="col-md-12 col-sm-12">
                     <div class="friend-card">
@@ -72,16 +77,16 @@
                         <div class="google-maps">
                           <div style="width: 640px; height: 480px" id="map"></div>
                         </div>
-                        <p class="pull-left text-green">
+                        <p class="pull-left text-black">
                           Can zoom in and out of the map. The bottom right icon with the diamond allows you to see satellite imagery along with current traffic conditions.
                         </p>
                         </div>
                         </br>
 
-                       <h2 v-if="!currentUser()" class="text-red">
+                       <h2 v-if="!currentUser()" class="text-blue">
                          <b>Name of Partner: {{ booking.user1.full_name }}</b>
                        </h2>
-                       <h2 v-else="!currentUser()" class="text-red">
+                       <h2 v-else="!currentUser()" class="text-blue">
                          <b>Name of Partner: {{ booking.user2.full_name }}</b>
                        </h2>
                      </br>
@@ -118,10 +123,6 @@
                          </div>
                        </div>
                      </div>
-                     <router-link v-bind:to="`/bookings`">
-                       <button class="btn btn-warning">All Bookings</button>
-                     </router-link>
-
                       </div>
                     </div>
                   </div>
