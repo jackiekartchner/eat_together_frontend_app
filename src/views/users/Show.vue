@@ -62,6 +62,7 @@
         </div>
       </div>
     </div>
+
   <!--   <h3>Name: {{ user.full_name }}</h3>
     <p>Bio: {{ user.bio }}</p>
     <p>Phone Number: {{ user.phone_number }}</p>

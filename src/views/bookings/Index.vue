@@ -1,23 +1,39 @@
 <template>
-  <div class="container">
-    <h1>All Bookings</h1>
-    <!-- Timeline
-    ================================================= -->
-    <div class="timeline">
-      <div class="timeline-cover">
-
-        <!--Timeline Menu for Large Screens-->
-        <div class="timeline-nav-bar hidden-sm hidden-xs">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="profile-info">
-                <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
-                <h3>{{user.full_name}}</h3>
-                <p class="text-muted">{{user.bio}}</p>
+  <div class="bookings-index">
+    <div class="container">
+      <div class="timeline">
+        <div class="timeline-cover">
+          <!--Timeline Menu for Large Screens-->
+          <div class="timeline-nav-bar hidden-sm hidden-xs">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="profile-info">
+                  <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+                  <h3>{{ user.full_name }}</h3>
+                  <p class="text-muted">{{ user.bio }}</p>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <ul class="list-inline profile-menu">
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href="" class="active"></a></li>
+                </ul>
               </div>
             </div>
-            <div class="col-md-9">
-              <ul class="list-inline profile-menu">
+          </div>
+          <!--Timeline Menu for Large Screens End-->
+
+          <!--Timeline Menu for Small Screens-->
+          <div class="navbar-mobile hidden-lg hidden-md">
+            <div class="profile-info">
+              <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+              <h4>{{ user.full_name }}</h4>
+              <p class="text-muted">{{ user.bio }}</p>
+            </div>
+            <div class="mobile-menu">
+              <ul class="list-inline">
                 <li><a href=""></a></li>
                 <li><a href=""></a></li>
                 <li><a href=""></a></li>
@@ -25,44 +41,52 @@
               </ul>
             </div>
           </div>
-        </div><!--Timeline Menu for Large Screens End-->
+          <!--Timeline Menu for Small Screens End-->
+        </div>
 
-        <!--Timeline Menu for Small Screens-->
-        <div class="navbar-mobile hidden-lg hidden-md">
-          <div class="profile-info">
-            <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
-            <h4>{{user.full_name}}</h4>
-            <p class="text-muted">{{user.bio}}</p>
-          </div>
-          <div class="mobile-menu">
-            <ul class="list-inline">
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
-              <li><a href="" class="active"></a></li>
-            </ul>
-          </div>
-        </div><!--Timeline Menu for Small Screens End-->
+        <div class="timeline">
+          <div id="page-contents">
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-9">
+                <div class="friend-list">
+                  <div class="row">
+                    <div v-for="booking in bookings" class="col-md-6 col-sm-12">
+                      <div class="friend-card">
+                        <img
+                          v-bind:src="booking.restaurant.image_url"
+                          alt="profile-cover"
+                          class="img-responsive cover"
+                        />
+                        <div class="card-info">
+                          <div class="friend-info">
+                            <h5>
+                              <a href="timeline.html" class="profile-link">
+                                Cuisine Type: {{ booking.restaurant.categories }}
+                              </a>
+                            </h5>
+                            <p>
+                              <b>Price:</b>
+                              {{ booking.restaurant.price }}
+                            </p>
+                            <p>
+                              <b>Available Date:</b>
+                              {{ relativeDate(booking.appointment) }}
+                            </p>
+                            <p>
+                              <b>Available Time:</b>
+                              {{ relativeTime(booking.appointment) }}
+                            </p>
+                            <p>
+                              <b>Last Updated</b>
+                              {{ updatedDate(booking.updated_at) }}
+                            </p>
+                          </div>
 
-      </div>
-      <div id="page-contents">
-
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-7">
-
-            <!-- Friend List
-            ================================================= -->
-            <div class="friend-list">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="friend-card">
-                    <img src="" alt="profile-cover" class="img-responsive cover" />
-                    <div class="card-info">
-                      <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-                      <div class="friend-info">
-                        <h5><a href="timeline.html" class="profile-link">Restaurant Name: </a></h5>
-                        <p>Student at Harvard</p>
+                          <router-link class="btn btn-primary" v-bind:to="`/bookings/${booking.id}`">
+                            Details
+                          </router-link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -70,31 +94,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-2 static">
-            <div id="sticky-sidebar">
-              <h4 class="grey">{{user.full_name}}'s activity</h4>
-              <div class="feed-item">
-                <div class="live-activity">
-                  <p><a href="/users/me" class="profile-link">{{user.full_name}}</a> Commended on a Photo</p>
-                  <p class="text-muted">5 mins ago</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <div v-for="booking in bookings">
-      <h3>Restaurant Name: {{ booking.restaurant.name }}</h3>
-      <img v-bind:src="booking.restaurant.image_url" alt="" />
-      <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
-      <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p>
-      <p>Last Updated {{ updatedDate(booking.updated_at) }}</p>
-      <router-link v-bind:to="`/bookings/${booking.id}`">
-        <button class="btn btn-warning">Booking and Restaurant Details</button>
-      </router-link>
-      </div>
-    </div>  
   </div>
 </template>
 

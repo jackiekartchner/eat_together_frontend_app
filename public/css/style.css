@@ -498,7 +498,8 @@ textarea{
   ==================================================*/
 
 #banner{
-	background: url("http://placehold.it/1920x900") fixed no-repeat;
+
+	background: linear-gradient(to right, rgba(0,0,0, 0.7) , rgba(0,0,0, 0.7)), url("/images/trendy_restaurant.jpg") fixed no-repeat;
   background-position: center;
 	background-size: cover;
 	width: 100%;
@@ -819,7 +820,7 @@ textarea{
   ==================================================*/  
 
 #lp-register{
-  background: linear-gradient(to right, rgba(0,0,0, 0.7) , rgba(0,0,0, 0.7)), url("http://placehold.it/1920x1280") fixed no-repeat;
+  background: linear-gradient(to right, rgba(0,0,0, 0.7) , rgba(0,0,0, 0.7)), url("/images/trendy_restaurant.jpg") fixed no-repeat;
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -1538,7 +1539,7 @@ ul.online-users li span.online-dot{
   ==================================================*/
 
 .timeline-cover{
-  background: url("http://placehold.it/1030x360") no-repeat;
+  background: url("/images/trendy_restaurant.jpg") no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 360px;

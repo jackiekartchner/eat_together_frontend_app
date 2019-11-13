@@ -2,8 +2,6 @@
   <div class="container">
     <h1>All Cravings</h1>
     <div class="timeline-cover">
-      <img src="/images/trendy_restaurant" alt="banner_image" />
-      <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
           <div class="col-md-3">
@@ -24,9 +22,7 @@
           </div>
         </div>
       </div>
-      <!--Timeline Menu for Large Screens End-->
 
-      <!--Timeline Menu for Small Screens-->
       <div class="navbar-mobile hidden-lg hidden-md">
         <div class="profile-info">
           <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
@@ -39,8 +35,8 @@
           </router-link>
         </div>
       </div>
-      <!--Timeline Menu for Small Screens End-->
     </div>
+
     <div v-for="craving in cravings">
       <!-- Timeline
       ================================================= -->

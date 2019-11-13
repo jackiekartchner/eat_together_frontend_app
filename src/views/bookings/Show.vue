@@ -1,5 +1,6 @@
 <template>
   <div class="bookings-show">
+    </br>
     <!-- Newsfeed Common Side Bar Left
           ================================================= -->
     <div class="col-md-3 static">
@@ -64,7 +65,7 @@
                          <h3>
                            <a class="">Restaurant Info:</a>
                          </h3>
-                        <p><b>ddress:</b>A {{ booking.restaurant.display_address }}</p>
+                        <p><b>Address:</b> {{ booking.restaurant.display_address }}</p>
                             <p><b>Phone Number:</b> {{ booking.restaurant.display_phone }}</p>
                             <p><b>Price:</b> {{ booking.restaurant.price }}</p>
                             <p><b>Category:</b> {{ booking.restaurant.categories }}</p>
