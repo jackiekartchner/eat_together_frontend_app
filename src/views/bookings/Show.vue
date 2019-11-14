@@ -1,5 +1,6 @@
 <template>
   <div class="bookings-show">
+
           <div class="container">
         <h1>Booking Details</h1>
         <div class="timeline">
@@ -10,8 +11,8 @@
                 <div class="col-md-3">
                   <div class="profile-info">
                     <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
-                    <h3></h3>
-                    <p class="text-muted"></p>
+                    <h3>{{ user.full_name }}</h3>
+                    <p class="text-muted">{{ user.bio }}</p>
                   </div>
                 </div>
                 <div class="col-md-9">
@@ -30,8 +31,8 @@
             <div class="navbar-mobile hidden-lg hidden-md">
               <div class="profile-info">
                 <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
-                <h4></h4>
-                <p class="text-muted"></p>
+                <h3>{{ user.full_name }}</h3>
+                  <p class="text-muted">{{ user.bio }}</p>
               </div>
               <div class="mobile-menu">
                 <ul class="list-inline">
@@ -78,7 +79,7 @@
                           <div style="width: 640px; height: 480px" id="map"></div>
                         </div>
                         <p class="pull-left text-black">
-                          Can zoom in and out of the map. The bottom right icon with the diamond allows you to see satellite imagery along with current traffic conditions.
+                          Can zoom in and out of the map. 
                         </p>
                         </div>
                         </br>

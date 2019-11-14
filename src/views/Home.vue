@@ -52,7 +52,7 @@
     </section>
     <section id="features">
       <div class="container wrapper">
-        <h1 class="section-title slideDown">social herd</h1>
+        <h1 class="section-title slideDown">FOODIES UNITE</h1>
         <div class="row slideUp">
           <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
             <div class="feature-icon"><i class="icon ion-person-add"></i></div>

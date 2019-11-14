@@ -29,31 +29,35 @@
               <li class="text-danger" v-for="error in errors">{{ error }}</li>
             </ul>
             <div class="form-group">
-              <label>Name:</label>
+              <h4>Name:</h4>
               <input type="string" class="form-control" v-model="user.full_name" />
             </div>
             <div class="form-group">
-              <label>Bio:</label>
+              <h4>Bio:</h4>
               <input type="text" class="form-control" v-model="user.bio" />
             </div>
             <div class="form-group">
-              <label>Phone Number:</label>
+              <h4>Phone Number:</h4>
               <input type="string" class="form-control" v-model="user.phone_number" />
             </div>
             <div class="form-group">
-              <label>Email:</label>
+              <h4>Email:</h4>
               <input type="string" class="form-control" v-model="user.email" />
             </div>
             <div class="form-group">
-              <label>Zip Code:</label>
+              <h4>Zip Code:</h4>
               <input type="string" class="form-control" v-model="user.zip_code" />
             </div>
             <div>
               <input type="submit" class="btn btn-primary" value="Save Edits" />
+            </div>
+          </br>
+            <div>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                 Delete User
               </button>
             </div>
+          </br>
 
             <!-- Modal -->
             <div class="modal fade" id="deleteModal" role="dialog">
