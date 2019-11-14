@@ -31,8 +31,8 @@
             <div class="navbar-mobile hidden-lg hidden-md">
               <div class="profile-info">
                 <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
-                <h3>{{ user.full_name }}</h3>
-                  <p class="text-muted">{{ user.bio }}</p>
+                <h4></h4>
+                <p class="text-muted"></p>
               </div>
               <div class="mobile-menu">
                 <ul class="list-inline">
