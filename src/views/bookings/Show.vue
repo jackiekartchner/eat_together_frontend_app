@@ -74,7 +74,7 @@
                             <p><b>Phone Number:</b> {{ booking.restaurant.display_phone }}</p>
                             <p><b>Price:</b> {{ booking.restaurant.price }}</p>
                             <p><b>Category:</b> {{ booking.restaurant.categories }}</p>
-                        <div class="google-maps">
+                        <div class="here-maps">
                           <div style="width: 640px; height: 480px" id="map"></div>
                         </div>
                         <p class="pull-left text-black">
@@ -83,10 +83,10 @@
                         </div>
                         </br>
 
-                       <h2 v-if="!currentUser()" class="text-blue">
+                       <h2 v-if="currentUser()" class="text-blue">
                          <b>Name of Partner: {{ booking.user1.full_name }}</b>
                        </h2>
-                       <h2 v-else="!currentUser()" class="text-blue">
+                       <h2 v-else class="text-blue">
                          <b>Name of Partner: {{ booking.user2.full_name }}</b>
                        </h2>
                      </br>
@@ -95,10 +95,10 @@
                        <h4>
                          <a class="">Partner Contact Info:</a>
                        </h4>
-                       <p v-if="!currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
-                       <p v-else="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
-                       <p v-if="!currentUser()">Email: {{ booking.user1.email }}</p>
-                       <p v-else="!currentUser()">Email: {{ booking.user2.email }}</p> 
+                       <p v-if="currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
+                       <p v-else> Phone Number: {{ booking.user2.phone_number }}</p>
+                       <p v-if="currentUser()">Email: {{ booking.user1.email }}</p>
+                       <p v-else> Email: {{ booking.user2.email }}</p> 
                        </br>
                      <!-- Trigger the modal with a button -->
                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
@@ -330,12 +330,25 @@ export default {
       return moment(time).format("h:mm a");
     },
     currentUser: function() {
-      if (this.user_id == this.booking.user1_id) {
+      // console.log(typeof localStorage.getItem(“user_id”));
+      // console.log(typeof this.user.id);
+      // console.log(typeof this.userId);
+      // console.log(this.userId);
+      // console.log(this.booking.user1_id);
+      if (this.userId == this.booking.user1_id) {
         return true;
       } else {
         return false;
       }
     },
+    // if (localStorage.getItem(“user_id”) == this.booking.user1_id) {
+    //        console.log(“true”);
+    //        return true;
+    //      } else {
+    //        console.log(“false”);
+    //        return false;
+    //       }
+    //      },
     destroyBooking: function() {
       axios.delete("/api/bookings/" + this.booking.id).then(response => {
         console.log("Success", response.data);
@@ -345,6 +358,7 @@ export default {
     },
     getUserInfo: function() {
       this.userId = localStorage.getItem("user_id", response.data.user_id);
+      // console.log(this.userId);
     }
   }
 };

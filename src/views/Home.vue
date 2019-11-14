@@ -13,7 +13,7 @@
                 <br />
                 What are you waiting for? Sign up now!
               </p>
-              <router-link class="btn btn-primary" to="/signup">Signup</router-link>
+              <router-link class="btn btn-primary" v-if="!isLoggedIn()" to="/signup">Signup</router-link>
             </div>
           </div>
         </div>
@@ -50,6 +50,33 @@
         </div>
       </div>
     </section>
+    <section id="features">
+      <div class="container wrapper">
+        <h1 class="section-title slideDown">social herd</h1>
+        <div class="row slideUp">
+          <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
+            <div class="feature-icon"><i class="icon ion-person-add"></i></div>
+            <h3>Make Friends</h3>
+          </div>
+          <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+            <div class="feature-icon"><i class="icon ion-images"></i></div>
+            <h3>Food Images</h3>
+          </div>
+          <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+            <div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
+            <h3>Private Chats</h3>
+          </div>
+          <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+            <div class="feature-icon"><i class="icon ion-compose"></i></div>
+            <h3>Restaurant Reviews</h3>
+          </div>
+        </div>
+        <h2 class="sub-title">find foodies like you</h2>
+        <div id="incremental-counter" data-value="101242"></div>
+        <p>People Already Signed Up</p>
+        <img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -63,6 +90,14 @@ export default {
     };
   },
   created: function() {},
-  methods: {}
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 };
 </script>

@@ -44,27 +44,39 @@
             </div>
             <!--Timeline Menu for Small Screens End-->
           </div>
-
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <div class="reg-form-container">
-                
-                <!--Registration Form Contents-->
-                <div class="tab-content">
-                  <div class="tab-pane active" id="register">
-                    <h3>{{ user.full_name }}</h3>
-                    <p class="text-muted">{{ user.bio }}</p>
-                    
-                    <!--Register Form-->
-                    <form name="registration_form" id='registration_form' class="form-inline">
-                      <p>Phone Number: {{ user.phone_number }}</p>
-                      <p>Email: {{ user.email }}</p>
-                      <p>Zip Code: {{ user.zip_code }}</p>
-                        <router-link v-bind:to="`/users/${user.id}/edit`">
-                          <button class="btn btn-warning">Edit Profile</button>
-                        </router-link>
-                      </form>
-                    </br>
+              <!-- Top Banner
+              ================================================= -->
+              <section id="banner">
+                <div class="container">
+                            <div class="row">
+                              <div class="col-sm-6 col-sm-offset-3">
+                                <div class="reg-form-container">
+                                  <!--Registration Form Contents-->
+                                  <div class="tab-content">
+                                    <div class="tab-pane active" id="register">
+                                      <h1>{{ user.full_name }}</h1>
+                                      <h3 class="text-muted">{{ user.bio }}</h3>
+                                      </br>
+                                  <!--Register Form-->
+                                  <form name="registration_form" id='registration_form' class="form-inline">
+                                    <h4><b>Phone Number:</b> {{ user.phone_number }}</h4>
+                                  </br>
+                                    <h4 class="text-muted"><b>Email:</b> {{ user.email }}</h4>
+                                    </br>
+                                    <h4><b>Zip Code:</b> {{ user.zip_code }}</h4>
+                                    </br>
+                                      <router-link v-bind:to="`/users/${user.id}/edit`">
+                                        <button class="btn btn-warning">Edit Profile</button>
+                                      </router-link>
+                                    </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </br>
                     </div>
                   </div>
                 </div>
@@ -76,10 +88,6 @@
     </div>
   </div>
 </div>
-
-
- 
-
 </template>
 
 <script>
