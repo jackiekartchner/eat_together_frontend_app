@@ -81,22 +81,22 @@
               <p class="text-muted">Price:</p>
 
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$" v-model="price" checked />
                 $ (under $10)
               </label>
               <br />
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$$" v-model="price" checked />
                 $$ ($11-$30)
               </label>
               <br />
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$$$" v-model="price" checked />
                 $$$ ($31-$60)
               </label>
               <br />
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$$$$" v-model="price" checked />
                 $$$$ ($61+)
               </label>
             </div>
