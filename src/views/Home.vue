@@ -33,12 +33,12 @@
           <ul class="facts-list">
             <li>
               <div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
-              <h3 class="text-white">1,01,242</h3>
+              <h3 class="text-white">101,242</h3>
               <p>People registered</p>
             </li>
             <li>
               <div class="fact-icon"><i class="icon ion-images"></i></div>
-              <h3 class="text-white">21,01,242</h3>
+              <h3 class="text-white">2101,242</h3>
               <p>Bookings Made</p>
             </li>
             <li>
