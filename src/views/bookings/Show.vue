@@ -84,11 +84,8 @@
                         </div>
                         </br>
 
-                       <h2 v-if="currentUser()" class="text-blue">
-                         <b>Name of Partner: {{ booking.user1.full_name }}</b>
-                       </h2>
-                       <h2 v-else class="text-blue">
-                         <b>Name of Partner: {{ booking.user2.full_name }}</b>
+                       <h2 class="text-blue">
+                         <b>Name of Partner: Veronica Stephens</b>
                        </h2>
                      </br>
                      </br>
@@ -96,10 +93,8 @@
                        <h4>
                          <a class="">Partner Contact Info:</a>
                        </h4>
-                       <p v-if="currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
-                       <p v-else> Phone Number: {{ booking.user2.phone_number }}</p>
-                       <p v-if="currentUser()">Email: {{ booking.user1.email }}</p>
-                       <p v-else> Email: {{ booking.user2.email }}</p> 
+                       <p>Phone Number: (805) 300-2432</p>
+                       <p>Email: veronica@gmail.cmo</p>
                        </br>
                      <!-- Trigger the modal with a button -->
                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
@@ -134,58 +129,6 @@
         </div>
       </div>
     </div>
-
-    
-    <!-- <p>Reservation Date: {{ relativeDate(booking.appointment) }}</p>
-    <p>Reservation Time: {{ relativeTime(booking.appointment) }}</p> -->
-    <!-- <p>Restaurant Name: {{ booking.restaurant.name }}</p>
-    <img v-bind:src="booking.restaurant.image_url" alt="" /> -->
- <!--    <p><b>Restaurant Info:</b></p>
-    <div style="width: 640px; height: 480px" id="map"></div> -->
-    <!-- <div id="map"></div> -->
-  <!--   <p>Address: {{ booking.restaurant.display_address }}</p>
-    <p>Phone Number: {{ booking.restaurant.display_phone }}</p>
-    Yelp Review:
-    <a v-bind:href="booking.restaurant.url">{{ booking.restaurant.name }}</a>
-    <p>Price: {{ booking.restaurant.price }}</p>
-    <p>Category: {{ booking.restaurant.categories }}</p>
-    <p v-if="!currentUser()">
-      <b>Name of Partner: {{ booking.user1.full_name }}</b>
-    </p>
-    <p v-else="!currentUser()">
-      <b>Name of Partner: {{ booking.user2.full_name }}</b>
-    </p>
-    <p><b>Partner Contact Info:</b></p>
-    <p v-if="!currentUser()">Phone Number: {{ booking.user1.phone_number }}</p>
-    <p v-else="!currentUser()">Phone Number: {{ booking.user2.phone_number }}</p>
-    <p v-if="!currentUser()">Email: {{ booking.user1.email }}</p>
-    <p v-else="!currentUser()">Email: {{ booking.user2.email }}</p> -->
-    <!-- Trigger the modal with a button -->
-   <!--  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
-      Delete Booking
-    </button> -->
-
-    <!-- Modal -->
-   <!--  <div class="modal fade" id="deleteModal" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Delete Booking</h4>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to delete this Booking?</p>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-danger" v-on:click="destroyBooking()">Delete Booking</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <router-link v-bind:to="`/bookings`">
-      <button class="btn btn-warning">All Bookings</button>
-    </router-link> -->
   </div>
 </template>
 
@@ -331,25 +274,12 @@ export default {
       return moment(time).format("h:mm a");
     },
     currentUser: function() {
-      // console.log(typeof localStorage.getItem(“user_id”));
-      // console.log(typeof this.user.id);
-      // console.log(typeof this.userId);
-      // console.log(this.userId);
-      // console.log(this.booking.user1_id);
-      if (this.userId == this.booking.user1_id) {
+      if (this.userId == this.booking.user1) {
         return true;
       } else {
         return false;
       }
     },
-    // if (localStorage.getItem(“user_id”) == this.booking.user1_id) {
-    //        console.log(“true”);
-    //        return true;
-    //      } else {
-    //        console.log(“false”);
-    //        return false;
-    //       }
-    //      },
     destroyBooking: function() {
       axios.delete("/api/bookings/" + this.booking.id).then(response => {
         console.log("Success", response.data);
@@ -358,7 +288,7 @@ export default {
       });
     },
     getUserInfo: function() {
-      this.userId = localStorage.getItem("user_id", response.data.user_id);
+      this.user_id = localStorage.getItem("user_id", response.data.user_id);
       // console.log(this.userId);
     }
   }
