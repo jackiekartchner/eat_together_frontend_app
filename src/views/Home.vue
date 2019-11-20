@@ -38,7 +38,7 @@
             </li>
             <li>
               <div class="fact-icon"><i class="icon ion-images"></i></div>
-              <h3 class="text-white">2101,242</h3>
+              <h3 class="text-white">201,242</h3>
               <p>Bookings Made</p>
             </li>
             <li>

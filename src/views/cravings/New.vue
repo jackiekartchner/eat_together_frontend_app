@@ -1,15 +1,52 @@
 <template>
-  <div class="cravings-new">
-    <div class="container">
-      <div class="tab-content">
-        <div class="tab-pane active" id="register">
-          <h3>Make a Craving</h3>
-          <p class="text-muted">What are you in the mood for?</p>
+  <div class="users-show">
+      <div class="container">
+        <h1>Make a Craving</h1>
+        <p class="text-muted">What are you in the mood for?</p>
+        <div class="timeline">
+          <div class="timeline-cover">
+            <!--Timeline Menu for Large Screens-->
+            <div class="timeline-nav-bar hidden-sm hidden-xs">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="profile-info">
+                    <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
+                    <h3></h3>
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <ul class="list-inline profile-menu">
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href="" class="active"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--Timeline Menu for Large Screens End-->
 
-          <ul>
-            <li class="text-danger" v-for="error in errors">{{ error }}</li>
-          </ul>
-
+            <!--Timeline Menu for Small Screens-->
+            <div class="navbar-mobile hidden-lg hidden-md">
+              <div class="profile-info">
+                <img src="/images/eric.png" alt="" class="img-responsive profile-photo" />
+                <h4></h4>
+                <p class="text-muted"></p>
+              </div>
+              <div class="mobile-menu">
+                <ul class="list-inline">
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href="" class="active"></a></li>
+                </ul>
+              </div>
+            </div>
+            <!--Timeline Menu for Small Screens End-->
+          </div>
+        </br>
+      </br>
           <!--Register Form-->
           <form v-on:submit.prevent="submit()" id="registration_form" class="form-inline">
             <div class="form-group col-xs-6 pb-20">
@@ -44,22 +81,22 @@
               <p class="text-muted">Price:</p>
 
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$" v-model="price" checked />
                 $ (under $10)
               </label>
               <br />
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$$" v-model="price" checked />
                 $$ ($11-$30)
               </label>
               <br />
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$$$" v-model="price" checked />
                 $$$ ($31-$60)
               </label>
               <br />
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked />
+                <input type="radio" name="optradio" value = "$$$$" v-model="price" checked />
                 $$$$ ($61+)
               </label>
             </div>
@@ -67,10 +104,11 @@
               <p class="text-muted">Available Date and Time:</p>
               <input type="datetime-local" class="form-control" v-model="appointment" />
             </div>
+            <div class="form-group col-xs-12 pb-20">
+              <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
           </form>
-          <div class="form-group col-xs-12 pb-20">
-            <input type="submit" class="btn btn-primary" value="Submit" />
-          </div>
+          
         </div>
       </div>
     </div>
