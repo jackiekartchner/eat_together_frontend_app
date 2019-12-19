@@ -76,14 +76,15 @@
                             <p><b>Price:</b> {{ booking.restaurant.price }}</p>
                             <p><b>Category:</b> {{ booking.restaurant.categories }}</p>
                         <div class="here-maps">
-                          <div style="width: 640px; height: 480px" id="map"></div>
-                        </div>
-                        <p class="pull-left text-black">
-                          Can zoom in and out of the map. 
-                        </p>
+                          <div style="width: 550px; height: 500px" id="map"></div>
                         </div>
                         </br>
-
+                        <router-link class="btn btn-primary" v-bind:to="`/bookings/google/${booking.id}`">
+                          Google Maps
+                        </router-link>
+                        <router-link class="btn btn-primary" v-bind:to="`/bookings/mapbox/${booking.id}`">
+                          Mapbox Maps
+                        </router-link>
                        <h2 class="text-blue">
                          <b>Name of Partner: Veronica Stephens</b>
                        </h2>
@@ -94,7 +95,7 @@
                          <a class="">Partner Contact Info:</a>
                        </h4>
                        <p>Phone Number: (805) 300-2432</p>
-                       <p>Email: veronica@gmail.cmo</p>
+                       <p>Email: veronica@gmail.com</p>
                        </br>
                      <!-- Trigger the modal with a button -->
                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
@@ -115,6 +116,7 @@
                            <div class="modal-footer">
                              <button class="btn btn-danger" v-on:click="destroyBooking()">Delete Booking</button>
                              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                             </div>
                            </div>
                          </div>
                        </div>
@@ -133,7 +135,7 @@
 </template>
 
 <style>
-/*body {
+body {
   margin: 0;
   padding: 0;
 }
@@ -145,7 +147,12 @@
 }
 .mapboxgl-popup {
   max-width: 200px;
-}*/
+}
+#googlemap {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
 </style>
 <script>
 import axios from "axios";
@@ -236,36 +243,9 @@ export default {
       geocoder.geocode(geocodingParams, onResult, function(e) {
         alert(e);
       });
-
-      // this.display_address = response.data.restaurant.display_address;
-      // console.log(this.display_address);
-
-      // mapboxgl.accessToken =
-      //   "pk.eyJ1IjoiamthcnRjaDIiLCJhIjoiY2sxdXozZ3N2MTcxMTNscDRzY2Z1cTY1eCJ9.W_YhUE5-d-Z5RbJE2Zf3HQ";
-
-      // var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-      // mapboxClient.geocoding
-      //   .forwardGeocode({
-      //     query: this.display_address,
-      //     autocomplete: false,
-      //     limit: 1
-      //   })
-      //   .send()
-      //   .then(function(response) {
-      //     if (response && response.body && response.body.features && response.body.features.length) {
-      //       var feature = response.body.features[0];
-      //       var map = new mapboxgl.Map({
-      //         container: "map",
-      //         style: "mapbox://styles/mapbox/streets-v11",
-      //         center: feature.center,
-      //         zoom: 15
-      //       });
-      //       new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
-      //     }
-      //   });
     });
   },
-  mounted: function() {},
+  
   methods: {
     relativeDate: function(date) {
       return moment(date).format("MMMM Do YYYY");
