@@ -79,7 +79,7 @@
                               width="100%"
                               height="400px"
                               :src="
-                                'https://www.google.com/maps/embed/v1/search?key=AIzaSyDNLgOBZpdeOrSHv1tj6Ikk23wc-1AH3Gc&q=' +
+                                'https://www.google.com/maps/embed/v1/search?key=GOOGLE_API_KEY&q=' +
                                   booking.restaurant.display_address
                               "
                             ></iframe>
